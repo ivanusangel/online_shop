@@ -1,5 +1,7 @@
 package org.ivan_smirnov.online_shop.main;
 
+import org.ivan_smirnov.online_shop.dao.ProductDao;
+import org.ivan_smirnov.online_shop.service.ProductService;
 import org.ivan_smirnov.online_shop.servlet.ProductsServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -7,11 +9,20 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        ProductsServlet allRequestsServlet = new ProductsServlet();
+        //config dao
+        ProductDao productDao = new ProductDao();
 
+        //config service
+        ProductService productService = new ProductService(productDao);
+
+        //config servlet
+        ProductsServlet productServlet = new ProductsServlet(productService);
+
+        //servlet mapping
         ServletContextHandler servletContextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        servletContextHandler.addServlet(new ServletHolder(allRequestsServlet), "/products");
+        servletContextHandler.addServlet(new ServletHolder(productServlet), "/products");
 
+        //start
         Server server = new Server(8080);
         server.setHandler(servletContextHandler);
 
