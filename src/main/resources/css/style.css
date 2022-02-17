@@ -1,5 +1,5 @@
 .cont {
-    width: 500px;
+    max-width: 600px;
     margin: auto;
-    border-bottom: black;
+    border-bottom: 2px black;
 }

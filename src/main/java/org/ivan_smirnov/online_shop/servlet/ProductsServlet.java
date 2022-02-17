@@ -4,7 +4,6 @@ import org.ivan_smirnov.online_shop.model.Product;
 import org.ivan_smirnov.online_shop.service.ProductService;
 import org.ivan_smirnov.online_shop.templater.PageGenerator;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

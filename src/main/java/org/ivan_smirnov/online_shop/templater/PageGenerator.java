@@ -3,6 +3,7 @@ package org.ivan_smirnov.online_shop.templater;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.ivan_smirnov.online_shop.main.WebAppProperties;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 
 public class PageGenerator {
-    private static final String HTML_DIR = "src/main/resources/templates";
+    private static final String HTML_DIR = "/templates";
 
     private static PageGenerator pageGenerator;
     private final Configuration cfg;
@@ -26,7 +27,8 @@ public class PageGenerator {
     public String getPage(String filename, Map<String, Object> data) {
         Writer stream = new StringWriter();
         try {
-            Template template = cfg.getTemplate(HTML_DIR + File.separator + filename);
+            Template template = cfg.getTemplate(WebAppProperties.getProperty("webAppPath")
+                    + HTML_DIR + File.separator + filename);
             template.process(data, stream);
         } catch (IOException | TemplateException e) {
             throw new RuntimeException(e);

@@ -13,10 +13,9 @@ public class ProductService {
     }
 
     public List<Product> getAll() {
-//        List<Product> productList = new ArrayList<>();
-//        productList.add(new Product(1, "pie", 100));
-//        productList.add(new Product(2, "cake", 200));
-//        return productList;
         return productDao.findAll();
+    }
+
+    public void addProduct(Product product) {
     }
 }
