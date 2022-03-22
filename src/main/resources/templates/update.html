@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Add product</title>
+</head>
+<body>
+
+<div class="cont">
+    <form action="/products/update" method="post">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" name="id" id="id1" value=${id} disabled>
+        <input type="text" class="form-control" name="id" id="id" value=${id} hidden>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" value=${name}>
+        <label for="price">Price</label>
+        <input type="text" class="form-control" name="price" id="price" value=${price}>
+        <button type="submit" class="btn btn-primary leftSide freeSpaceTop">Save</button>
+    </form>
+</div>
+
+</body>
+</html>
